@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get "posts/index"
-  get "posts/new"
-  get "posts/create"
-  
   root "posts#index"
   
   devise_for :users

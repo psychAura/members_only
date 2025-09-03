@@ -1,0 +1,60 @@
+<!-- Full Page Gradient Background -->
+<div style="min-height: 100vh; width: 100%; margin: 0; padding: 0;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            display: flex; justify-content: center; align-items: center;
+            font-family: Georgia, 'Times New Roman', serif;">
+
+  <!-- Glass Container -->
+  <div style="max-width: 450px; width: 90%;
+              background: rgba(255,255,255,0.75); backdrop-filter: blur(15px);
+              -webkit-backdrop-filter: blur(15px);
+              border-radius: 25px; box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+              padding: 3rem;">
+
+    <!-- Header -->
+    <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;
+               background: linear-gradient(90deg, #6a11cb, #2575fc); color: white;
+               padding: 0.75rem 0; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+      Log In
+    </h2>
+
+    <!-- Devise Log In Form -->
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div style="margin-bottom: 1rem;">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",
+              style: "width: 100%; padding: 0.5rem; border-radius: 10px; border: 1px solid #ccc;" %>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password",
+              style: "width: 100%; padding: 0.5rem; border-radius: 10px; border: 1px solid #ccc;" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div style="margin-bottom: 1.5rem;">
+          <%= f.check_box :remember_me, style: "margin-right: 0.5rem;" %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div style="text-align: center;">
+        <%= f.submit "Log In",
+              style: "background: #2575fc; color: white; padding: 0.5rem 1rem;
+                      border-radius: 12px; font-weight: 600; cursor: pointer;
+                      transition: 0.3s;" %>
+      </div>
+    <% end %>
+
+    <div style="text-align: center; margin-top: 1rem;">
+      <%= link_to "Don't have an account? Sign Up", new_registration_path(resource_name),
+            style: "color: #6a11cb; font-weight: 500;" %>
+    </div>
+
+    <div style="text-align: center; margin-top: 0.5rem;">
+      <%= render "devise/shared/links" %>
+    </div>
+    
+  </div>
+</div>
